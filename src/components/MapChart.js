@@ -11,7 +11,7 @@ const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
 
-const MapChart = ({ setTooltipContent, setCurrentCountry }) => {
+const MapChart = ({ setTooltipContent, setCurrentCountry, setSelectedCountry }) => {
 
     const apiContext = useContext(ApiContext)
   return (
@@ -32,9 +32,29 @@ const MapChart = ({ setTooltipContent, setCurrentCountry }) => {
                     setTooltipContent("");
                   }}
                   onClick={(event) => {
-                    const { NAME } = geo.properties;
-                    setCurrentCountry(NAME);
+                    let { NAME } = geo.properties;
+                    switch (NAME) {
+                      case "United States Of America":
+                        {
+                          NAME = "USA"
+                          break;
+                        }
+                        case "United Kingdom":
+                          {
+                            NAME = "UK"
+                            break;
+                          }
+                        case "Dem. Rep. Congo":
+                          {
+                            NAME = "DRC"
+                            break;
+                          }
+                    
+                      default:
+                        break;
+                    }
                     apiContext.callApi(NAME);
+                    setCurrentCountry(NAME);
                     console.log(NAME)
                   }}
                   style={{

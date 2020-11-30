@@ -5,8 +5,9 @@ const initialApi = "https://disease.sh/v3/covid-19/all"//global wali api
 export const ApiContext = createContext(initialApi);
 
 export const GlobalProvider = ({children}) => {
-    let [state, dispatch] = useReducer(ApiReducer, initialApi)
+    let [state, dispatch] = useReducer(ApiReducer, initialApi)    
     let dataArr = useState({});
+    let chartDataArr = useState();
 
     const callApi = (country) => {
         dispatch({
@@ -19,7 +20,8 @@ export const GlobalProvider = ({children}) => {
             {
                 api : state,
                 callApi,
-                dataArr
+                dataArr,
+                chartDataArr
             }
             
         }>
