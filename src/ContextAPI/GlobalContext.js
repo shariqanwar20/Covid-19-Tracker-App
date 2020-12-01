@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useState } from 'react'
+import React, { createContext, useReducer } from 'react'
 import ApiReducer from './ApiReducer'
 
 const initialApi = "https://disease.sh/v3/covid-19/all"//global wali api
