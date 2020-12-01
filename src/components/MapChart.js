@@ -11,9 +11,9 @@ const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
 
-const MapChart = ({ setTooltipContent, setCurrentCountry, setSelectedCountry }) => {
+const MapChart = ({ setTooltipContent, setCurrentCountry }) => {
 
-    const apiContext = useContext(ApiContext)
+  const apiContext = useContext(ApiContext)
   return (
     <>
       <ComposableMap data-tip="" projectionConfig={{ scale: 200 }}>
@@ -31,10 +31,10 @@ const MapChart = ({ setTooltipContent, setCurrentCountry, setSelectedCountry }) 
                   onMouseLeave={() => {
                     setTooltipContent("");
                   }}
-                  onClick={(event) => {
+                  onClick={() => {
                     let { NAME } = geo.properties;
                     switch (NAME) {
-                      case "United States Of America":
+                      case "United States of America":
                         {
                           NAME = "USA"
                           break;

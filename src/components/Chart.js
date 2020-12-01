@@ -87,13 +87,16 @@ const ChartData = {
   ]
 };
 
-export default function Chart(){
+export default function Chart({apiData}){
     const apiContext = useContext(ApiContext);
 
     
     if (apiContext.api.includes("countries"))
     {
-      data.datasets[0].data = [apiContext.dataArr[0].cases, apiContext.dataArr[0].recovered, apiContext.dataArr[0].deaths];
+      if (!apiData.loading)
+        data.datasets[0].data = [apiData.chartData.countryData.cases, apiData.chartData.countryData.recovered, apiData.chartData.countryData.deaths];
+      else
+        data.datasets[0].data = [];
       return (
         <div>
           <h2>Covid Stats</h2>
@@ -111,14 +114,13 @@ export default function Chart(){
       );
     }
     else{
-      if (apiContext.chartDataArr[0] !== undefined)
+      if (!apiData.loading)
       {
-        console.log(apiContext.chartDataArr[0])
-        ChartData.datasets[0].data = Object.values(apiContext.chartDataArr[0].cases);
-        ChartData.datasets[1].data = Object.values(apiContext.chartDataArr[0].recovered);
-        ChartData.datasets[2].data = Object.values(apiContext.chartDataArr[0].deaths);
+        ChartData.datasets[0].data = Object.values(apiData.chartData.dailyApiData.cases);
+        ChartData.datasets[1].data = Object.values(apiData.chartData.dailyApiData.recovered);
+        ChartData.datasets[2].data = Object.values(apiData.chartData.dailyApiData.deaths);
 
-        ChartData.labels = Object.keys(apiContext.chartDataArr[0].cases)
+        ChartData.labels = Object.keys(apiData.chartData.dailyApiData.cases)
       }
       return (
         <div>

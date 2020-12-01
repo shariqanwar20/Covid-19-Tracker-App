@@ -6,8 +6,6 @@ export const ApiContext = createContext(initialApi);
 
 export const GlobalProvider = ({children}) => {
     let [state, dispatch] = useReducer(ApiReducer, initialApi)    
-    let dataArr = useState({});
-    let chartDataArr = useState();
 
     const callApi = (country) => {
         dispatch({
@@ -19,9 +17,7 @@ export const GlobalProvider = ({children}) => {
         <ApiContext.Provider value={
             {
                 api : state,
-                callApi,
-                dataArr,
-                chartDataArr
+                callApi
             }
             
         }>

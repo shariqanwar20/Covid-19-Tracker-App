@@ -3,7 +3,6 @@ import './App.css';
 import Header from './components/Header';
 import GlobalGrid from './components/GlobalGrid';
 import { GlobalProvider } from './ContextAPI/GlobalContext';
-import { Api } from './components/Api';
 
 function App() {
   return (
@@ -11,7 +10,6 @@ function App() {
       <Header />
       <br />
       <GlobalProvider>
-        <Api />
         <GlobalGrid />
       </GlobalProvider>
     </div>
