@@ -124,7 +124,7 @@ export default function Chart({apiData}){
       }
       return (
         <div>
-          <h2>Line Example</h2>
+          <h2>Covid Stats</h2>
           <Line data={ChartData} />
         </div>
       );
