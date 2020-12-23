@@ -1,3 +1,6 @@
+#surge url for coivid tracker website
+[Covid19 Tracker App](http://covid19-tracker-app-shariq.surge.sh/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
