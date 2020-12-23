@@ -1,4 +1,4 @@
-#surge url for coivid tracker website
+# Surge Url For Covid Tracker Website
 [Covid19 Tracker App](http://covid19-tracker-app-shariq.surge.sh/)
 
 # Getting Started with Create React App
